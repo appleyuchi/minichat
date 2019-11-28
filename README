@@ -1,7 +1,7 @@
-A simple python chat app (demo) writtern with flask and gevent.
+apt-get install libev-dev libevent-dev python-all-dev -y
+pip install gevent flask
 
-To use it:  
-`sudo apt-get install libev-dev libevent-dev python-all-dev -y`  
-`pip install gevent flask`  
-`python app.py`  
-... and go to http://127.0.0.1:5000 to use it.
+# 测试方法:
+#可以開多個瀏覽器頁面:
+#127.0.0.1:5006/python/你的網名
+#然後進行互相通信

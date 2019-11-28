@@ -102,8 +102,3 @@ if __name__ == "__main__":
     http = WSGIServer(('', port), app)
     http.serve_forever()
 
-
-# 测试方法:
-#可以開多個瀏覽器頁面:
-#127.0.0.1:5006/python/你的網名
-#然後進行互相通信
