@@ -73,7 +73,9 @@ def join(room, uid):
     return render_template('room.html',room=room, uid=uid, messages=messages)
 
 
-#-------------------下面的两个函数都是在浏览器中不可访问的----------------------------------------
+#-------------------下面的两个函数都是在浏览器中不可访问的,而是用來在後臺返回log信息,這兩個函數都是被html中的代碼所調用的----------------------------------------
+
+# 這個是返回給user所在的聊天室頁面的
 @app.route("/put/<room>/<uid>", methods=["POST"])
 def put(room, uid):
     user = users[uid]
@@ -86,6 +88,7 @@ def put(room, uid):
 
 
 # poll:轮询请求数据的作用(每隔10秒對queue進行輪詢)
+# 這個是返回給服務器的
 @app.route("/poll/<uid>", methods=["POST"])
 def poll(uid):
     try:
@@ -95,14 +98,12 @@ def poll(uid):
     return json.dumps(msg)
 
 if __name__ == "__main__":
-    port=5004
+    port=5006
     http = WSGIServer(('', port), app)
     http.serve_forever()
 
 
-
-# 测试案例:
-# 打开http://127.0.0.1:5002/(choose_name)
-# http://127.0.0.1:5002/维吾尔文(main)
-# http://127.0.0.1:5002/python/维吾尔文(join)
-# ssdfsdf
+# 测试方法:
+#可以開多個瀏覽器頁面:
+#127.0.0.1:5006/python/你的網名
+#然後進行互相通信

@@ -24,7 +24,7 @@
             var longPoll = function() {
               return $.ajax({
                 type: "POST",
-                url: "/poll/" + "{{uid}}",
+                url: "/poll/" + "{{uid}}",// use python http api 
                 async: true,
                 cache: false,
                 timeout: 100000,
@@ -43,6 +43,7 @@
         });
     </script>
 </head>
+
 <body>
     Messages:
     <ul id="messages">
